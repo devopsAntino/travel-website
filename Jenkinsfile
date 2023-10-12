@@ -3,8 +3,6 @@ pipeline {
 
     environment {
         DOCKER_REPO = "brodevops/travel_website"
-        SSHUSERNAME = "ubuntu"
-
     }
 
     stages {

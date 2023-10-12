@@ -1,20 +1,12 @@
-FROM node:18 as builder
+FROM node:16
 
 WORKDIR /app
 
 COPY . .
 
-RUN npm install 
-RUN npm run build
+RUN npm install -y
 
-FROM nginx:alpine
+EXPOSE 3000
 
-WORKDIR /usr/share/nginx/html
+CMD ["npm", "start"]
 
-COPY --from=builder /app/dist .
-
-RUN rm -rf /etc/nginx/conf.d/default.conf
-
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-CMD ["nginx", "-g", "daemon off;"]

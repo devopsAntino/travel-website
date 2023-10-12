@@ -3,6 +3,9 @@ pipeline {
 
     environment {
         DOCKER_REPO = "brodevops/travel_website"
+        SSHUSERNAME = "ubuntu"
+        SCRIPTPATH = "/home/ubuntu/travel-website"
+        IP = "3.83.156.106"
     }
 
     stages {
